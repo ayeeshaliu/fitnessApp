@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_app/core/utils/styles/color_utils.dart';
+import 'package:fitness_app/features/viewModel/baseState.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -13,6 +15,9 @@ import 'core/utils/function/dev_utils.dart';
 import 'core/utils/sizeConfig/sizeConfig.dart';
 
 import 'package:path_provider/path_provider.dart' as path_provider;
+
+import 'features/onBoarding/onboarding.dart';
+import 'features/viewModel/appState.dart';
 
 
 Future <void> main()async {
@@ -62,8 +67,8 @@ Future <void> main()async {
             builder: (context) =>
                 MultiProvider(
                     providers: [
-                      // ChangeNotifierProvider(create: (_) => AppState()),
-
+                      ChangeNotifierProvider(create: (_) => AppState()),
+                      ChangeNotifierProvider(create: (_) => BaseViewModel()),
                     ],
                     child: MyApp(
 
@@ -111,19 +116,22 @@ class _MyAppState extends State<MyApp> {
 
     return  LayoutBuilder(
         builder: (context, constraints){
-          return  OrientationBuilder(builder: (context, orientation){
+          return  OrientationBuilder(
+              builder: (context, orientation){
             SizeConfig().init(constraints, orientation);
+            var screenHeight = MediaQuery.of(context).size.height;
             return  MaterialApp(
-                supportedLocales: context.supportedLocales,
-                localizationsDelegates: context.localizationDelegates,
-                locale: context.locale,
+
                 debugShowCheckedModeBanner: false,
-                title: 'Primhex',
+                title: 'Fit24',
                 theme: ThemeData(
                   fontFamily: 'DMSans',
-                  primarySwatch: Colors.blue,
+
+                  primarySwatch: Colors.orange,
                 ),
-                home: Container()
+                home: Onboarding(
+                  screenHeight: screenHeight,
+                )
             );
           });
         });

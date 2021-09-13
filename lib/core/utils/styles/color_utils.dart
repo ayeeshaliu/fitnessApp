@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/sizeConfig/sizeConfig.dart';
 import 'package:flutter/material.dart';
 
  const Color kprimaryOrange = Color(0xffFF8000);
@@ -8,6 +9,25 @@ const Color  kTitleTextfieldColor = Color(0xff515151);
 const Color fadedText = Color(0xff979797);
 
 const Color orange =  Color(0xffFFAD01);
+
+
+
+const Color kBlue = Color(0xFF306EFF);
+const Color kLightBlue = Color(0xFF4985FD);
+const Color kDarkBlue = Color(0xFF1046B3);
+const Color kWhite = Color(0xFFFFFFFF);
+const Color kGrey = Color(0xFFF4F5F7);
+const Color kBlack = Color(0xFF2D3243);
+
+// Padding
+const double kPaddingS = 8.0;
+const double kPaddingM = 16.0;
+final double kPaddingL = 3.9 * SizeConfig.heightMultiplier;
+
+// Spacing
+final double kSpaceS = 0.9 * SizeConfig.heightMultiplier;
+final double kSpaceM = 1.9 * SizeConfig.heightMultiplier;
+
 Color green = Color(0xff81AA60);
 Color okCheck = Color(0xff0AA06E);
 Color badCheck = Color(0xffFF6465);
