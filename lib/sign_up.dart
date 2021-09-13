@@ -12,6 +12,7 @@ class SignUp extends StatelessWidget {
             Center(
               child: Text("Members",
                 style: TextStyle(
+                  fontFamily:"Inter",
                   fontSize: 32,
                   fontWeight: FontWeight.w400,
                   fontStyle: FontStyle.normal,
@@ -24,6 +25,7 @@ class SignUp extends StatelessWidget {
             Center(
               child: Text("Sign up",
                 style: TextStyle(
+                  fontFamily:"Inter",
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.normal,
@@ -46,6 +48,7 @@ class SignUp extends StatelessWidget {
                   children: [
                   Text("EMAIL",
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.normal,
@@ -55,6 +58,7 @@ class SignUp extends StatelessWidget {
                   ),
                     SizedBox(height: 10.0,),
                     TextField(
+                      cursorHeight: 25,
                       textDirection: TextDirection.ltr,
                       decoration: InputDecoration(
                         filled: true,
@@ -77,6 +81,7 @@ class SignUp extends StatelessWidget {
                 children: [
                   Text("PASSWORD",
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.normal,
@@ -85,18 +90,24 @@ class SignUp extends StatelessWidget {
                     ) ,
                   ),
                   SizedBox(height: 10.0,),
-                  TextField(
-                    textDirection: TextDirection.ltr,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.grey[300],
-                      contentPadding: EdgeInsets.zero,
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFF7F8F9), width: 2.0),
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  Stack(
+                    children: [
+                      TextField(
+                        cursorHeight: 25,
+                        textDirection: TextDirection.ltr,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.grey[300],
+                          contentPadding: EdgeInsets.zero,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xFFF7F8F9), width: 2.0),
+                            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    ],
+                  )
+
                 ],
               ),
             ),
@@ -108,6 +119,7 @@ class SignUp extends StatelessWidget {
                 children: [
                   Text("CONFIRM PASSWORD",
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.normal,
@@ -117,6 +129,7 @@ class SignUp extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0,),
                   TextField(
+                    cursorHeight: 25,
                     textDirection: TextDirection.ltr,
                     decoration: InputDecoration(
                       filled: true,
@@ -155,6 +168,7 @@ class SignUp extends StatelessWidget {
                           SizedBox(height: 18,),
                           Text("Sign Up",
                             style: TextStyle(
+                              fontFamily: "Inter",
                                 fontWeight: FontWeight.w700,
                                 fontStyle: FontStyle.normal,
                                 fontSize: 15,
