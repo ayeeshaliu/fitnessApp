@@ -127,7 +127,6 @@ class SignUp extends StatelessWidget {
                       color: Color(0xFF3E4958),
                     ) ,
                   ),
-                  SizedBox(height: 10.0,),
                   TextField(
                     cursorHeight: 25,
                     textDirection: TextDirection.ltr,
