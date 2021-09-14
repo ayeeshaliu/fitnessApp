@@ -63,19 +63,20 @@ Future <void> main()async {
   });
   runZonedGuarded<Future<void>>(()async {
     runApp(
-        DevicePreview(
-            enabled: false,
-            builder: (context) =>
-                MultiProvider(
-                    providers: [
-                      ChangeNotifierProvider(create: (_) => AppState()),
-                      ChangeNotifierProvider(create: (_) => BaseViewModel()),
-                    ],
-                    child: MyApp(
+        MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (_) => AppState()),
+              ChangeNotifierProvider(create: (_) => BaseViewModel()),
+            ],
+            child: MyApp(
 
-                        hasNotUserUsedApp: hasUserUsedApp
-                    ))
-        )
+                hasNotUserUsedApp: hasUserUsedApp
+            )),
+        // DevicePreview(
+        //     enabled: true,
+        //     builder: (context) =>
+        //
+        // )
 
     );
 
