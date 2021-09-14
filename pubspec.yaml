@@ -46,11 +46,11 @@ dependencies:
   location: ^4.3.0
   geolocator: ^7.6.0
   geocoding: ^2.0.1
-  get: ^4.3.8
+  local_auth: ^1.1.7
   another_flushbar: ^1.10.24
   loading_overlay: ^0.2.1
   geocoder: ^0.2.1
-  flutter_paystack: ^1.0.5+1
+
   status_change: ^1.0.0
   bubble_tab_indicator: ^0.1.6
   equatable: ^0.2.0
