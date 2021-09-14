@@ -44,7 +44,7 @@ class CardsStack extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              color: Color(0XFF333a74),
+              color: brandPurple,
               child: Container(
                 width: darkCardWidth,
                 height: darkCardHeight,

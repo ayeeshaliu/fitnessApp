@@ -11,7 +11,7 @@ const Color fadedText = Color(0xff979797);
 const Color orange =  Color(0xffFFAD01);
 
 
-
+const Color brandPurple =    Color(0XFF333a74);
 const Color kBlue = Color(0xFF306EFF);
 const Color kLightBlue = Color(0xFF4985FD);
 const Color kDarkBlue = Color(0xFF1046B3);
