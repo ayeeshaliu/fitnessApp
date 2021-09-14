@@ -64,7 +64,7 @@ Future <void> main()async {
   runZonedGuarded<Future<void>>(()async {
     runApp(
         DevicePreview(
-            enabled: true,
+            enabled: false,
             builder: (context) =>
                 MultiProvider(
                     providers: [
