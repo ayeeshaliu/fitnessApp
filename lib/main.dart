@@ -116,27 +116,30 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
 
-    return  LayoutBuilder(
-        builder: (context, constraints){
-          return  OrientationBuilder(
-              builder: (context, orientation){
-            SizeConfig().init(constraints, orientation);
-            var screenHeight = MediaQuery.of(context).size.height;
-            return  MaterialApp(
+    return  MediaQuery(
+      data: MediaQueryData(),
+      child: LayoutBuilder(
+          builder: (context, constraints){
+            return  OrientationBuilder(
+                builder: (context, orientation){
+              SizeConfig().init(constraints, orientation);
+              var screenHeight = MediaQuery.of(context).size.height;
+              return  MaterialApp(
 
-                debugShowCheckedModeBanner: false,
-                title: 'Fit24',
-                theme: ThemeData(
-                  fontFamily: 'DMSans',
+                  debugShowCheckedModeBanner: false,
+                  title: 'Fit24',
+                  theme: ThemeData(
+                    fontFamily: 'DMSans',
 
-                  primarySwatch: Colors.orange,
-                ),
-                home: Onboarding(
-                  screenHeight: screenHeight,
-                )
-            );
-          });
-        });
+                    primarySwatch: Colors.orange,
+                  ),
+                  home: Onboarding(
+                    screenHeight: screenHeight,
+                  )
+              );
+            });
+          }),
+    );
   }
 
 
