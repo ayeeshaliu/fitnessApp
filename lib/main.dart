@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:fitness_app/trainer.dart';
 
 import 'package:device_preview/device_preview.dart';
 
@@ -20,24 +21,23 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'features/onBoarding/onboarding.dart';
 import 'features/viewModel/appState.dart';
 
-
-Future <void> main()async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-    await init();
+  await init();
 
-  final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
+  final appDocumentDirectory =
+      await path_provider.getApplicationDocumentsDirectory();
   var box;
   Hive.init(appDocumentDirectory.path);
-
 
   // Hive.registerAdapter(ContactCardModelAdapter());
   FlutterError.onError = (FlutterErrorDetails details) async {
     final exception = details.exception;
     final stackTrace = details.stack;
-    if(isInDebugMode){
+    if (isInDebugMode) {
       FlutterError.dumpErrorToConsole(details);
-    }else{
+    } else {
       Zone.current.handleUncaughtError(exception, stackTrace);
     }
   };
@@ -55,90 +55,60 @@ Future <void> main()async {
     }
   }
 
-
-  bool hasUserUsedApp= false;
+  bool hasUserUsedApp = false;
   isFirstTime().then((isFirstTimeb) {
-
-    hasUserUsedApp  = isFirstTimeb;
+    hasUserUsedApp = isFirstTimeb;
   });
-  runZonedGuarded<Future<void>>(()async {
+  runZonedGuarded<Future<void>>(() async {
     runApp(
-        MultiProvider(
-            providers: [
-              ChangeNotifierProvider(create: (_) => AppState()),
-              ChangeNotifierProvider(create: (_) => BaseViewModel()),
-            ],
-            child: MyApp(
-
-                hasNotUserUsedApp: hasUserUsedApp
-            )),
-        // DevicePreview(
-        //     enabled: true,
-        //     builder: (context) =>
-        //
-        // ),
-
+      MultiProvider(providers: [
+        ChangeNotifierProvider(create: (_) => AppState()),
+        ChangeNotifierProvider(create: (_) => BaseViewModel()),
+      ], child: MyApp(hasNotUserUsedApp: hasUserUsedApp)),
+      // DevicePreview(
+      //     enabled: true,
+      //     builder: (context) =>
+      //
+      // ),
     );
-
-  }, (error, stackTrace) async{
-
-
-  });
-
-
-
-
-
-
-
+  }, (error, stackTrace) async {});
 }
 
 class MyApp extends StatefulWidget {
   bool hasNotUserUsedApp;
 
   MyApp({this.hasNotUserUsedApp});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
     setStatusBarColor(color: BarColor.black);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
 
-    return  LayoutBuilder(
-        builder: (context, constraints){
-          return  OrientationBuilder(
-              builder: (context, orientation){
-            SizeConfig().init(constraints, orientation);
-            var screenHeight = MediaQuery.of(context).size.height;
-            return  MaterialApp(
-
-                debugShowCheckedModeBanner: false,
-                title: 'Fit24',
-                theme: ThemeData(
-                  fontFamily: 'DMSans',
-
-                  primarySwatch: Colors.orange,
-                ),
-                home: Onboarding(
-                  screenHeight: screenHeight,
-                )
-            );
-          });
+    return MediaQuery(
+      data: MediaQueryData(),
+      child: LayoutBuilder(builder: (context, constraints) {
+        return OrientationBuilder(builder: (context, orientation) {
+          SizeConfig().init(constraints, orientation);
+          var screenHeight = MediaQuery.of(context).size.height;
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Fit24',
+              theme: ThemeData(
+                fontFamily: 'DMSans',
+                primarySwatch: Colors.orange,
+              ),
+              home: Trainer(), //Onboarding(screenHeight: screenHeight)
+          );
         });
+      }),
+    );
   }
-
-
 }
-
